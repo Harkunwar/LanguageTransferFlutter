@@ -19,8 +19,7 @@ class App extends StatelessWidget {
 
   Route routes(RouteSettings settings) {
     return MaterialPageRoute(builder: (context) {
-      return Routes.toScreen(
-          settings.name == '/' ? Routes.SPLASHSCREEN : settings.name);
+      return Routes.toScreen(settings.name);
     });
   }
 }
