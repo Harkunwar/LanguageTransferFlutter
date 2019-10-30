@@ -8,27 +8,27 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final IconData icon;
 
-
-  CustomTextField(
-    {this.hint,
-      this.textEditingController,
-      this.keyboardType,
-      this.icon,
-      this.obscureText= false,
-     });
+  CustomTextField({
+    this.hint,
+    this.textEditingController,
+    this.keyboardType,
+    this.icon,
+    this.obscureText = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     double _pixelRatio = MediaQuery.of(context).devicePixelRatio;
-    bool large =  ResponsiveWidget.isScreenLarge(_width, _pixelRatio);
-    bool medium =  ResponsiveWidget.isScreenMedium(_width, _pixelRatio);
+    bool large = ResponsiveWidget.isScreenLarge(_width, _pixelRatio);
+    bool medium = ResponsiveWidget.isScreenMedium(_width, _pixelRatio);
     return Material(
       borderRadius: BorderRadius.circular(30.0),
-      elevation: large? 12 : (medium? 10 : 8),
+      elevation: large ? 12 : (medium ? 10 : 8),
       child: TextFormField(
         controller: textEditingController,
         keyboardType: keyboardType,
+        obscureText: obscureText,
         cursorColor: Colors.orange[200],
         decoration: InputDecoration(
           prefixIcon: Icon(icon, color: Colors.orange[200], size: 20),

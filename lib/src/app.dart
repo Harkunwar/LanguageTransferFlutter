@@ -17,12 +17,11 @@ class App extends StatelessWidget {
       title: "Login",
       theme: ThemeData(primaryColor: Colors.orange[200]),
       routes: <String, WidgetBuilder>{
-        SPLASH_SCREEN: (BuildContext context) =>  SplashScreen(),
-        SIGN_IN: (BuildContext context) =>  SignInPage(),
-        SIGN_UP: (BuildContext context) =>  SignUpScreen(),
+        SPLASH_SCREEN: (BuildContext context) => SplashScreen(),
+        SIGN_IN: (BuildContext context) => SignInPage(),
+        SIGN_UP: (BuildContext context) => SignUpScreen(),
       },
       initialRoute: SPLASH_SCREEN,
     );
   }
-
 }
