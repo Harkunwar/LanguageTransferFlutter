@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'constants/constants.dart';
-import 'ui/screens/signin.dart';
-import 'ui/screens/splash_screen.dart';
-import 'ui/screens/signup.dart';
+import 'utils/routes.dart';
 
 class App extends StatelessWidget {
   @override
@@ -14,14 +11,16 @@ class App extends StatelessWidget {
     ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Login",
+      title: 'Language Transfer',
       theme: ThemeData(primaryColor: Colors.orange[200]),
-      routes: <String, WidgetBuilder>{
-        SPLASH_SCREEN: (BuildContext context) => SplashScreen(),
-        SIGN_IN: (BuildContext context) => SignInPage(),
-        SIGN_UP: (BuildContext context) => SignUpScreen(),
-      },
-      initialRoute: SPLASH_SCREEN,
+      onGenerateRoute: routes,
     );
+  }
+
+  Route routes(RouteSettings settings) {
+    return MaterialPageRoute(builder: (context) {
+      return Routes.toScreen(
+          settings.name == '/' ? Routes.SPLASHSCREEN : settings.name);
+    });
   }
 }

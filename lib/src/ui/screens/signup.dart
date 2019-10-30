@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants/constants.dart';
+import '../../utils/routes.dart';
 import '../widgets/custom_shape.dart';
 import '../widgets/customappbar.dart';
 import '../widgets/responsive_ui.dart';
@@ -312,7 +312,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pop(SIGN_IN);
+              Navigator.of(context).pop(Routes.LOGIN);
               print("Routing to Sign up screen");
             },
             child: Text(

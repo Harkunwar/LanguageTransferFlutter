@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants/constants.dart';
+import '../../utils/routes.dart';
 import '../widgets/custom_shape.dart';
 import '../widgets/responsive_ui.dart';
 import '../widgets/textformfield.dart';
@@ -254,7 +254,7 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushNamed(SIGN_UP);
+              Navigator.of(context).pushNamed(Routes.SIGNUP);
               print("Routing to Sign up screen");
             },
             child: Text(
