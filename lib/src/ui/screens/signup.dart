@@ -21,14 +21,14 @@ class SignupScreen extends StatelessWidget {
                 Opacity(opacity: 0.88, child: CustomAppBar()),
                 clipShape(context),
                 form(context),
-                acceptTermsTextRow(context),
+                // acceptTermsTextRow(context),
                 SizedBox(
                   height: size.height / 35,
                 ),
                 button(context),
                 infoTextRow(context),
                 socialIconsRow(context),
-                //signInTextRow(),
+                // signInTextRow(context),
               ],
             ),
           ),
@@ -141,9 +141,9 @@ class SignupScreen extends StatelessWidget {
             SizedBox(height: size.height / 60.0),
             emailTextFormField(),
             SizedBox(height: size.height / 60.0),
-            phoneTextFormField(),
+            passwordTextFormField('Password'),
             SizedBox(height: size.height / 60.0),
-            passwordTextFormField(),
+            passwordTextFormField('Confirm Password'),
           ],
         ),
       ),
@@ -182,12 +182,12 @@ class SignupScreen extends StatelessWidget {
     );
   }
 
-  Widget passwordTextFormField() {
+  Widget passwordTextFormField(String hint) {
     return CustomTextField(
       keyboardType: TextInputType.text,
       obscureText: true,
       icon: Icons.lock,
-      hint: "Password",
+      hint: hint,
     );
   }
 
