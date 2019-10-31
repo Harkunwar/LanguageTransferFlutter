@@ -5,7 +5,6 @@ import '../widgets/responsive_ui.dart';
 import '../widgets/textformfield.dart';
 
 class LoginScreen extends StatelessWidget {
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -14,32 +13,28 @@ class LoginScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Material(
-      child: Container(
-        height: size.height,
-        width: size.width,
-        padding: EdgeInsets.only(bottom: 5),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              clipShape(context),
-              welcomeTextRow(context),
-              signInTextRow(context),
-              form(context),
-              forgetPassTextRow(context),
-              SizedBox(height: size.height / 12),
-              button(context),
-              signUpTextRow(context),
-            ],
+        child: Container(
+          height: size.height,
+          width: size.width,
+          padding: EdgeInsets.only(bottom: 5),
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                clipShape(context),
+                welcomeTextRow(context),
+                signInTextRow(context),
+                form(context),
+                forgetPassTextRow(context),
+                SizedBox(height: size.height / 12),
+                button(context),
+                signUpTextRow(context),
+              ],
+            ),
           ),
         ),
       ),
-    ),
     );
   }
-
-
-
-
 
   Widget clipShape(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -142,7 +137,9 @@ class LoginScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(
-          left: size.width / 12.0, right: size.width / 12.0, top: size.height / 15.0),
+          left: size.width / 12.0,
+          right: size.width / 12.0,
+          top: size.height / 15.0),
       child: Form(
         key: key,
         child: Column(
@@ -214,7 +211,7 @@ class LoginScreen extends StatelessWidget {
     final pixelRatio = MediaQuery.of(context).devicePixelRatio;
     final large = ResponsiveWidget.isScreenLarge(size.width, pixelRatio);
     final medium = ResponsiveWidget.isScreenMedium(size.width, pixelRatio);
-    
+
     return RaisedButton(
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
@@ -227,7 +224,9 @@ class LoginScreen extends StatelessWidget {
       padding: EdgeInsets.all(0.0),
       child: Container(
         alignment: Alignment.center,
-        width: large ? size.width / 4 : (medium ? size.width / 3.75 : size.width / 3.5),
+        width: large
+            ? size.width / 4
+            : (medium ? size.width / 3.75 : size.width / 3.5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
           gradient: LinearGradient(
@@ -246,7 +245,7 @@ class LoginScreen extends StatelessWidget {
     final pixelRatio = MediaQuery.of(context).devicePixelRatio;
     final large = ResponsiveWidget.isScreenLarge(size.width, pixelRatio);
     final medium = ResponsiveWidget.isScreenMedium(size.width, pixelRatio);
-    
+
     return Container(
       margin: EdgeInsets.only(top: size.height / 120.0),
       child: Row(
@@ -278,5 +277,4 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-
 }
