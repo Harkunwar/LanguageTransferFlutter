@@ -19,6 +19,9 @@ matrix:
         - pub global activate flutter_plugin_tools
       script:
         - ./script/incremental_build.sh analyze
+        
+branches:
+  only: [master]
 
 cache:
   directories:
