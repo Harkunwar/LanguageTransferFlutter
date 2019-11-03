@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../utils/routes.dart';
-import '../widgets/custom_shape.dart';
-import '../widgets/responsive_ui.dart';
-import '../widgets/textformfield.dart';
+import 'package:language_transfer/src/utils/routes.dart';
+import 'package:language_transfer/src/ui/widgets/custom_shape.dart';
+import 'package:language_transfer/src/ui/widgets/responsive_ui.dart';
+import 'package:language_transfer/src/ui/widgets/textformfield.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
         child: Container(
           height: size.height,
           width: size.width,
-          padding: EdgeInsets.only(bottom: 5),
+          padding: const EdgeInsets.only(bottom: 5),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
@@ -101,7 +101,7 @@ class LoginScreen extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Text(
-            "Welcome",
+            'Welcome',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: large ? 60 : (medium ? 50 : 40),
@@ -122,7 +122,7 @@ class LoginScreen extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Text(
-            "Sign in to your account",
+            'Sign in to your account',
             style: TextStyle(
               fontWeight: FontWeight.w200,
               fontSize: large ? 20 : (medium ? 17.5 : 15),
@@ -158,7 +158,7 @@ class LoginScreen extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       textEditingController: emailController,
       icon: Icons.email,
-      hint: "Email ID",
+      hint: 'Email ID',
     );
   }
 
@@ -168,7 +168,7 @@ class LoginScreen extends StatelessWidget {
       textEditingController: passwordController,
       icon: Icons.lock,
       obscureText: true,
-      hint: "Password",
+      hint: 'Password',
     );
   }
 
@@ -183,20 +183,20 @@ class LoginScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Forgot your password?",
+            'Forgot your password?',
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: large ? 14 : (medium ? 12 : 10)),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           GestureDetector(
             onTap: () {
-              print("Routing");
+              print('Routing');
             },
             child: Text(
-              "Recover",
+              'Recover',
               style: TextStyle(
                   fontWeight: FontWeight.w600, color: Colors.orange[200]),
             ),
@@ -216,9 +216,9 @@ class LoginScreen extends StatelessWidget {
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       onPressed: () {
-        print("Routing to your account");
+        print('Routing to your account');
         Scaffold.of(context)
-            .showSnackBar(SnackBar(content: Text('Login Successful')));
+            .showSnackBar(const SnackBar(content: Text('Login Successful')));
       },
       textColor: Colors.white,
       padding: EdgeInsets.all(0.0),
@@ -252,7 +252,7 @@ class LoginScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Don't have an account?",
+            'Don\'t have an account?',
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: large ? 14 : (medium ? 12 : 10)),
@@ -263,10 +263,10 @@ class LoginScreen extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.of(context).pushNamed(Routes.SIGNUP);
-              print("Routing to Sign up screen");
+              print('Routing to Sign up screen');
             },
             child: Text(
-              "Sign up",
+              'Sign up',
               style: TextStyle(
                   fontWeight: FontWeight.w800,
                   color: Colors.orange[200],

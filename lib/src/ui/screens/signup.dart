@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../utils/routes.dart';
-import '../widgets/custom_shape.dart';
-import '../widgets/customappbar.dart';
-import '../widgets/responsive_ui.dart';
-import '../widgets/textformfield.dart';
+import 'package:language_transfer/src/utils/routes.dart';
+import 'package:language_transfer/src/ui/widgets/custom_shape.dart';
+import 'package:language_transfer/src/ui/widgets/customappbar.dart';
+import 'package:language_transfer/src/ui/widgets/responsive_ui.dart';
+import 'package:language_transfer/src/ui/widgets/textformfield.dart';
 
 class SignupScreen extends StatelessWidget {
   @override
@@ -14,7 +14,7 @@ class SignupScreen extends StatelessWidget {
         body: Container(
           height: size.height,
           width: size.width,
-          margin: EdgeInsets.only(bottom: 5),
+          margin: const EdgeInsets.only(bottom: 5),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
@@ -84,7 +84,7 @@ class SignupScreen extends StatelessWidget {
               BoxShadow(
                   spreadRadius: 0.0,
                   color: Colors.black26,
-                  offset: Offset(1.0, 10.0),
+                  offset: const Offset(1.0, 10.0),
                   blurRadius: 20.0),
             ],
             color: Colors.white,
@@ -124,9 +124,6 @@ class SignupScreen extends StatelessWidget {
 
   Widget form(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final pixelRatio = MediaQuery.of(context).devicePixelRatio;
-    final large = ResponsiveWidget.isScreenLarge(size.width, pixelRatio);
-    final medium = ResponsiveWidget.isScreenMedium(size.width, pixelRatio);
     return Container(
       margin: EdgeInsets.only(
           left: size.width / 12.0,
@@ -154,7 +151,7 @@ class SignupScreen extends StatelessWidget {
     return CustomTextField(
       keyboardType: TextInputType.text,
       icon: Icons.person,
-      hint: "First Name",
+      hint: 'First Name',
     );
   }
 
@@ -162,7 +159,7 @@ class SignupScreen extends StatelessWidget {
     return CustomTextField(
       keyboardType: TextInputType.text,
       icon: Icons.person,
-      hint: "Last Name",
+      hint: 'Last Name',
     );
   }
 
@@ -170,7 +167,7 @@ class SignupScreen extends StatelessWidget {
     return CustomTextField(
       keyboardType: TextInputType.emailAddress,
       icon: Icons.email,
-      hint: "Email ID",
+      hint: 'Email ID',
     );
   }
 
@@ -178,7 +175,7 @@ class SignupScreen extends StatelessWidget {
     return CustomTextField(
       keyboardType: TextInputType.number,
       icon: Icons.phone,
-      hint: "Mobile Number",
+      hint: 'Mobile Number',
     );
   }
 
@@ -209,7 +206,7 @@ class SignupScreen extends StatelessWidget {
                 // to be fixed
               }),
           Text(
-            "I accept all terms and conditions",
+            'I accept all terms and conditions',
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: large ? 12 : (medium ? 11 : 10)),
@@ -228,10 +225,10 @@ class SignupScreen extends StatelessWidget {
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       onPressed: () {
-        print("Routing to your account");
+        print('Routing to your account');
       },
       textColor: Colors.white,
-      padding: EdgeInsets.all(0.0),
+      padding: const EdgeInsets.all(0.0),
       child: Container(
         alignment: Alignment.center,
 //        height: height / 20,
@@ -239,7 +236,7 @@ class SignupScreen extends StatelessWidget {
             ? size.width / 4
             : (medium ? size.width / 3.75 : size.width / 3.5),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(20.0)),
           gradient: LinearGradient(
             colors: <Color>[Colors.orange[200], Colors.pinkAccent],
           ),
@@ -264,7 +261,7 @@ class SignupScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Or create using social media",
+            'Or create using social media',
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: large ? 12 : (medium ? 11 : 10)),
@@ -280,24 +277,24 @@ class SignupScreen extends StatelessWidget {
       margin: EdgeInsets.only(top: size.height / 80.0),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
+        children: const <Widget>[
           CircleAvatar(
             radius: 15,
-            backgroundImage: AssetImage("assets/images/googlelogo.png"),
+            backgroundImage: AssetImage('assets/images/googlelogo.png'),
           ),
           SizedBox(
             width: 20,
           ),
           CircleAvatar(
             radius: 15,
-            backgroundImage: AssetImage("assets/images/fblogo.jpg"),
+            backgroundImage: AssetImage('assets/images/fblogo.jpg'),
           ),
           SizedBox(
             width: 20,
           ),
-          CircleAvatar(
+          const CircleAvatar(
             radius: 15,
-            backgroundImage: AssetImage("assets/images/twitterlogo.jpg"),
+            backgroundImage: AssetImage('assets/images/twitterlogo.jpg'),
           ),
         ],
       ),
@@ -312,19 +309,19 @@ class SignupScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Already have an account?",
+            'Already have an account?',
             style: TextStyle(fontWeight: FontWeight.w400),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           GestureDetector(
             onTap: () {
               Navigator.of(context).pop(Routes.LOGIN);
-              print("Routing to Sign up screen");
+              print('Routing to Sign up screen');
             },
             child: Text(
-              "Sign in",
+              'Sign in',
               style: TextStyle(
                   fontWeight: FontWeight.w800,
                   color: Colors.orange[200],

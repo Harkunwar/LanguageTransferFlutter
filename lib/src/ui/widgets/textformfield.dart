@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'responsive_ui.dart';
+import 'package:language_transfer/src/ui/widgets/responsive_ui.dart';
 
 class CustomTextField extends StatelessWidget {
+
   final String hint;
   final TextEditingController textEditingController;
   final TextInputType keyboardType;
   final bool obscureText;
   final IconData icon;
 
-  CustomTextField({
+  const CustomTextField({
     this.hint,
     this.textEditingController,
     this.keyboardType,
@@ -18,10 +19,10 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-    double _pixelRatio = MediaQuery.of(context).devicePixelRatio;
-    bool large = ResponsiveWidget.isScreenLarge(_width, _pixelRatio);
-    bool medium = ResponsiveWidget.isScreenMedium(_width, _pixelRatio);
+    final double _width = MediaQuery.of(context).size.width;
+    final double _pixelRatio = MediaQuery.of(context).devicePixelRatio;
+    final bool large = ResponsiveWidget.isScreenLarge(_width, _pixelRatio);
+    final bool medium = ResponsiveWidget.isScreenMedium(_width, _pixelRatio);
     return Material(
       borderRadius: BorderRadius.circular(30.0),
       elevation: large ? 12 : (medium ? 10 : 8),
