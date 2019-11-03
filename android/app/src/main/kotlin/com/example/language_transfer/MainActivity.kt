@@ -1,4 +1,4 @@
-package com.example.language_transfer
+package app.langtrans
 
 import android.os.Bundle
 
