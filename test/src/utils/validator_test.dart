@@ -40,18 +40,18 @@ void main() {
     expect(result, "Mobile is Required");
   });
 
-  test('Invalid mobile number length Test', () {
+  test('Invalid mobile number Test', () {
     var result = Validator.validateMobile('123456789');
     expect(result, "Mobile number must be 10 digits");
   });
 
   test('Valid mobile number Test', () {
-    var result = Validator.validatePasswordLength('1234567891');
+    var result = Validator.validateMobile('1234567891');
     expect(result, null);
   });
 
   // Name validation Tests
-  test('Invalid Name Length Test', () {
+  test('Empty Name Test', () {
     var result = Validator.validateName('');
     expect(result, "Name is Required");
   });
@@ -61,7 +61,7 @@ void main() {
     expect(result, "Name must be a-z and A-Z");
   });
 
-  test('Valid mobile number Test', () {
+  test('Valid name Test', () {
     var result = Validator.validateName('LanTran');
     expect(result, null);
   });
