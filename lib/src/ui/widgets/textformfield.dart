@@ -29,9 +29,9 @@ class CustomTextField extends StatelessWidget {
         controller: textEditingController,
         keyboardType: keyboardType,
         obscureText: obscureText,
-        cursorColor: Colors.orange[200],
+        cursorColor: Colors.blue[200],
         decoration: InputDecoration(
-          prefixIcon: Icon(icon, color: Colors.orange[200], size: 20),
+          prefixIcon: Icon(icon, color: Colors.white, size: 20),
           hintText: hint,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30.0),
