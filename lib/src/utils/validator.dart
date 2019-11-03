@@ -16,7 +16,7 @@ class Validator {
     if (value.length == 0) {
       return "Mobile is Required";
     } else if (value.length != 10) {
-      return "Mobile number must 10 digits";
+      return "Mobile number must be 10 digits";
     } else if (!regExp.hasMatch(value)) {
       return "Mobile Number must be digits";
     }
