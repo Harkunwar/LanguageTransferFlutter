@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+.vscode/
 
 # IntelliJ related
 *.iml
@@ -27,7 +28,9 @@
 .packages
 .pub-cache/
 .pub/
+.dart_tool/
 /build/
+
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -37,6 +40,7 @@
 **/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
+.android/
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
@@ -64,6 +68,7 @@
 **/ios/Flutter/flutter_export_environment.sh
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+.ios/
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
