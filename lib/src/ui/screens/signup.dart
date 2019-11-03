@@ -54,7 +54,7 @@ class SignupScreen extends StatelessWidget {
                   : (medium ? size.height / 7 : size.height / 6.5),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.orange[200], Colors.pinkAccent],
+                  colors: [Colors.blue[100], Colors.blue],
                 ),
               ),
             ),
@@ -70,7 +70,7 @@ class SignupScreen extends StatelessWidget {
                   : (medium ? size.height / 11 : size.height / 10),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.orange[200], Colors.pinkAccent],
+                  colors: [Colors.white, Colors.blue[500]],
                 ),
               ),
             ),
@@ -97,7 +97,7 @@ class SignupScreen extends StatelessWidget {
               child: Icon(
                 Icons.add_a_photo,
                 size: large ? 40 : (medium ? 33 : 31),
-                color: Colors.orange[200],
+                color: Colors.blue[500],
               )),
         ),
 //        Positioned(
@@ -200,7 +200,7 @@ class SignupScreen extends StatelessWidget {
         children: <Widget>[
           Checkbox(
               // TODO: Need to fix this
-              activeColor: Colors.orange[200],
+              activeColor: Colors.blue[500],
               value: false,
               onChanged: (bool newValue) {
                 // to be fixed
@@ -238,7 +238,7 @@ class SignupScreen extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(20.0)),
           gradient: LinearGradient(
-            colors: <Color>[Colors.orange[200], Colors.pinkAccent],
+            colors: <Color>[Colors.white, Colors.blue[500]],
           ),
         ),
         padding: const EdgeInsets.all(12.0),
@@ -324,7 +324,7 @@ class SignupScreen extends StatelessWidget {
               'Sign in',
               style: TextStyle(
                   fontWeight: FontWeight.w800,
-                  color: Colors.orange[200],
+                  color: Colors.white,
                   fontSize: 19),
             ),
           )
