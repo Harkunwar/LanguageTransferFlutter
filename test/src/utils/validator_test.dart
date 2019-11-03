@@ -29,7 +29,7 @@ void main() {
     expect(result, "Password must be longer than 10 characters");
   });
 
-  test('valid password length test', () {
+  test('Valid password length test', () {
     var result = Validator.validatePasswordLength('12345678910');
     expect(result, null);
   });
