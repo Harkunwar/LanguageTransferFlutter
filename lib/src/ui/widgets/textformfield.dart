@@ -32,7 +32,7 @@ class CustomTextField extends StatelessWidget {
         obscureText: obscureText,
         cursorColor: Colors.blue[200],
         decoration: InputDecoration(
-          prefixIcon: Icon(icon, color: Colors.white, size: 20),
+          prefixIcon: Icon(icon, color: Colors.deepPurple, size: 20),
           hintText: hint,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30.0),
