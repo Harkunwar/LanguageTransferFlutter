@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:language_transfer/src//ui/screens/login.dart';
-import 'package:language_transfer/src//ui/screens/signup.dart';
+import 'package:language_transfer/src/ui/screens/login.dart';
+import 'package:language_transfer/src/ui/screens/signup.dart';
 
 class Routes {
   static const String LOGIN = '/login';
