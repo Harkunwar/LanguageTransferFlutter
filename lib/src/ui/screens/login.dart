@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                   : (medium ? size.height / 3.75 : size.height / 3.5),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.white, Colors.blue[400]],
+                  colors: [Colors.deepPurple, Colors.blue[700]],
                 ),
               ),
             ),
@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
             child: Container(
               height: large
                   ? size.height / 4.5
-                  : (medium ? size.height / 4.25 : size.height / 4),
+                  : (medium ? size.height / 4.25 : size.height / 6),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Colors.white, Colors.blue[400]],
@@ -77,14 +77,10 @@ class LoginScreen extends StatelessWidget {
         ),
         Container(
           alignment: Alignment.bottomCenter,
-          margin: EdgeInsets.only(
-              top: large
-                  ? size.height / 30
-                  : (medium ? size.height / 25 : size.height / 20)),
           child: Image.asset(
             'assets/images/login.png',
-            height: size.height / 3.0,
-            width: size.width / 3.0,
+            height: size.height / 2.5,
+            width: size.width / 2.5,
           ),
         ),
       ],
@@ -220,7 +216,7 @@ class LoginScreen extends StatelessWidget {
         Scaffold.of(context)
             .showSnackBar(const SnackBar(content: Text('Login Successful')));
       },
-      textColor: Colors.white,
+      textColor: Colors.black,
       padding: EdgeInsets.all(0.0),
       child: Container(
         alignment: Alignment.center,
@@ -230,12 +226,12 @@ class LoginScreen extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
           gradient: LinearGradient(
-            colors: <Color>[Colors.white, Colors.blue[500]],
+            colors: <Color>[Colors.deepPurpleAccent, Colors.blue[500]],
           ),
         ),
         padding: const EdgeInsets.all(12.0),
         child: Text('SIGN IN',
-            style: TextStyle(fontSize: large ? 14 : (medium ? 12 : 10))),
+            style: TextStyle(fontSize: large ? 14 : (medium ? 14 : 13))),
       ),
     );
   }
