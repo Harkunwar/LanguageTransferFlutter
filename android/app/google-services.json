@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "30372035578",
+    "firebase_url": "https://langtrans-app.firebaseio.com",
+    "project_id": "langtrans-app",
+    "storage_bucket": "langtrans-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30372035578:android:38381a41248f0743d88243",
+        "android_client_info": {
+          "package_name": "app.langtrans"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30372035578-9blg0ieqki0d98d7no68gjcqdbnmut6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcIPU_qx7bEW43eW8FE9cK6DaizYzWrqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30372035578-9blg0ieqki0d98d7no68gjcqdbnmut6i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "30372035578-mtr2qf5v4m4prppaj0jqf5mch1hkp8oa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "app.langtrans"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

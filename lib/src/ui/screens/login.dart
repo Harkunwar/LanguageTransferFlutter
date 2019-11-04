@@ -217,14 +217,14 @@ class LoginScreen extends StatelessWidget {
             .showSnackBar(const SnackBar(content: Text('Login Successful')));
       },
       textColor: Colors.black,
-      padding: EdgeInsets.all(0.0),
+      padding: const EdgeInsets.all(0.0),
       child: Container(
         alignment: Alignment.center,
         width: large
             ? size.width / 4
             : (medium ? size.width / 3.75 : size.width / 3.5),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(20.0)),
           gradient: LinearGradient(
             colors: <Color>[Colors.deepPurpleAccent, Colors.blue[500]],
           ),
@@ -253,7 +253,7 @@ class LoginScreen extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontSize: large ? 14 : (medium ? 12 : 10)),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           GestureDetector(

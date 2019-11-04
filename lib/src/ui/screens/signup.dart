@@ -292,7 +292,7 @@ class SignupScreen extends StatelessWidget {
           SizedBox(
             width: 20,
           ),
-          const CircleAvatar(
+          CircleAvatar(
             radius: 15,
             backgroundImage: AssetImage('assets/images/twitterlogo.jpg'),
           ),
