@@ -1,3 +1,4 @@
+import 'package:firecross/firecross.dart';
 import 'package:flutter/material.dart';
 import 'package:language_transfer/src/utils/routes.dart';
 import 'package:language_transfer/src/ui/widgets/custom_shape.dart';
@@ -8,27 +9,31 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  LoginScreen({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Material(
-        child: Container(
-          height: size.height,
-          width: size.width,
-          padding: const EdgeInsets.only(bottom: 5),
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                clipShape(context),
-                welcomeTextRow(context),
-                signInTextRow(context),
-                form(context),
-                forgetPassTextRow(context),
-                SizedBox(height: size.height / 12),
-                button(context),
-                signUpTextRow(context),
-              ],
+      body: Builder(
+        builder: (context) => Material(
+          child: Container(
+            height: size.height,
+            width: size.width,
+            padding: const EdgeInsets.only(bottom: 5),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  clipShape(context),
+                  welcomeTextRow(context),
+                  signInTextRow(context),
+                  form(context),
+                  forgetPassTextRow(context),
+                  SizedBox(height: size.height / 12),
+                  button(context),
+                  signUpTextRow(context),
+                ],
+              ),
             ),
           ),
         ),
@@ -193,8 +198,8 @@ class LoginScreen extends StatelessWidget {
             },
             child: Text(
               'Recover',
-              style: TextStyle(
-                  fontWeight: FontWeight.w600, color: Colors.black),
+              style:
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
             ),
           )
         ],
@@ -211,10 +216,19 @@ class LoginScreen extends StatelessWidget {
     return RaisedButton(
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-      onPressed: () {
-        print('Routing to your account');
-        Scaffold.of(context)
-            .showSnackBar(const SnackBar(content: Text('Login Successful')));
+      onPressed: () async {
+        final String email = emailController.text;
+        final String password = passwordController.text;
+        final FirecrossAuth auth = FirecrossAuth.instance;
+        try {
+          final FirecrossUser user =
+              (await auth.signInWithEmailAndPassword(email, password)).user;
+          Scaffold.of(context).showSnackBar(SnackBar(
+              content: Text('${user.displayName??'null'} signed in')));
+        } catch (e) {
+          Scaffold.of(context).showSnackBar(SnackBar(
+              content: Text(e.toString())));
+        }
       },
       textColor: Colors.black,
       padding: const EdgeInsets.all(0.0),
