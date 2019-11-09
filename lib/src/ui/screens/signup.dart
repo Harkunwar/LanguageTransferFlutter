@@ -1,3 +1,4 @@
+import 'package:firecross/firecross.dart';
 import 'package:flutter/material.dart';
 import 'package:language_transfer/src/utils/routes.dart';
 import 'package:language_transfer/src/ui/widgets/custom_shape.dart';
@@ -6,30 +7,39 @@ import 'package:language_transfer/src/ui/widgets/responsive_ui.dart';
 import 'package:language_transfer/src/ui/widgets/textformfield.dart';
 
 class SignupScreen extends StatelessWidget {
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordConfirmationController =
+      TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Material(
-      child: Scaffold(
-        body: Container(
-          height: size.height,
-          width: size.width,
-          margin: const EdgeInsets.only(bottom: 5),
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Opacity(opacity: 0.88, child: CustomAppBar()),
-                clipShape(context),
-                form(context),
-                // acceptTermsTextRow(context),
-                SizedBox(
-                  height: size.height / 35,
-                ),
-                button(context),
-                infoTextRow(context),
-                socialIconsRow(context),
-                // signInTextRow(context),
-              ],
+    return Scaffold(
+      body: Builder(
+        builder: (context) => Material(
+          child: Container(
+            height: size.height,
+            width: size.width,
+            margin: const EdgeInsets.only(bottom: 5),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Opacity(opacity: 0.88, child: CustomAppBar()),
+                  clipShape(context),
+                  form(context),
+                  // acceptTermsTextRow(context),
+                  SizedBox(
+                    height: size.height / 35,
+                  ),
+                  button(context),
+                  infoTextRow(context),
+                  socialIconsRow(context),
+                  // signInTextRow(context),
+                ],
+              ),
             ),
           ),
         ),
@@ -138,9 +148,9 @@ class SignupScreen extends StatelessWidget {
             SizedBox(height: size.height / 60.0),
             emailTextFormField(),
             SizedBox(height: size.height / 60.0),
-            passwordTextFormField('Password'),
+            passwordTextFormField(),
             SizedBox(height: size.height / 60.0),
-            passwordTextFormField('Confirm Password'),
+            passwordConfirmationTextFormField(),
           ],
         ),
       ),
@@ -152,6 +162,7 @@ class SignupScreen extends StatelessWidget {
       keyboardType: TextInputType.text,
       icon: Icons.person,
       hint: 'First Name',
+      textEditingController: firstNameController,
     );
   }
 
@@ -160,6 +171,7 @@ class SignupScreen extends StatelessWidget {
       keyboardType: TextInputType.text,
       icon: Icons.person,
       hint: 'Last Name',
+      textEditingController: lastNameController,
     );
   }
 
@@ -168,6 +180,7 @@ class SignupScreen extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       icon: Icons.email,
       hint: 'Email ID',
+      textEditingController: emailController,
     );
   }
 
@@ -179,12 +192,23 @@ class SignupScreen extends StatelessWidget {
     );
   }
 
-  Widget passwordTextFormField(String hint) {
+  Widget passwordTextFormField() {
     return CustomTextField(
       keyboardType: TextInputType.text,
       obscureText: true,
       icon: Icons.lock,
-      hint: hint,
+      hint: 'Password',
+      textEditingController: passwordController,
+    );
+  }
+
+  Widget passwordConfirmationTextFormField() {
+    return CustomTextField(
+      keyboardType: TextInputType.text,
+      obscureText: true,
+      icon: Icons.lock,
+      hint: 'Confirm Password',
+      textEditingController: passwordConfirmationController,
     );
   }
 
@@ -224,8 +248,31 @@ class SignupScreen extends StatelessWidget {
     return RaisedButton(
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-      onPressed: () {
-        print('Routing to your account');
+      onPressed: () async {
+        // TODO: Add validator code
+
+        final String firstName = firstNameController.text;
+        final String lastName = lastNameController.text;
+        final String email = emailController.text;
+        final String password = passwordController.text;
+
+        final FirecrossAuth auth = FirecrossAuth.instance;
+
+        try {
+          FirecrossUser user =
+              (await auth.createUserWithEmailAndPassword(email, password)).user;
+          await user.updateProfile(
+            displayName: '$firstName $lastName',
+          );
+          await user.reload();
+          user = await auth.currentUser();
+          Scaffold.of(context).showSnackBar(
+              SnackBar(content: Text('${user.displayName} signed up')));
+        } catch (e) {
+          print(e);
+          Scaffold.of(context)
+              .showSnackBar(SnackBar(content: Text(e.toString())));
+        }
       },
       textColor: Colors.white,
       padding: const EdgeInsets.all(0.0),
@@ -333,3 +380,4 @@ class SignupScreen extends StatelessWidget {
     );
   }
 }
+
