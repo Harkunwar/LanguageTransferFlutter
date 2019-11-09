@@ -226,7 +226,6 @@ class LoginScreen extends StatelessWidget {
           Scaffold.of(context).showSnackBar(SnackBar(
               content: Text('${user.displayName??'null'} signed in')));
         } catch (e) {
-          print(e);
           Scaffold.of(context).showSnackBar(SnackBar(
               content: Text(e.toString())));
         }

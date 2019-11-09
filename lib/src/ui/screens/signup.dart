@@ -269,7 +269,6 @@ class SignupScreen extends StatelessWidget {
           Scaffold.of(context).showSnackBar(
               SnackBar(content: Text('${user.displayName} signed up')));
         } catch (e) {
-          print(e);
           Scaffold.of(context)
               .showSnackBar(SnackBar(content: Text(e.toString())));
         }
