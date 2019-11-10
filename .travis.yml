@@ -10,7 +10,7 @@ matrix:
         global:
           - FLUTTER_CHANNEL=dev
       install:
-        - git clone https://github.com/flutter/flutter.git -b $FLUTTER_CHANNEL
+        - git clone https://github.com/flutter/flutter.git -b dev
         - export PATH="$PATH:`pwd`/flutter/bin/cache/dart-sdk/bin"
         - export PATH="$PATH:`pwd`/flutter/bin"
         - flutter doctor -v
