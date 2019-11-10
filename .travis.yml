@@ -14,7 +14,7 @@ install:
   - flutter doctor -v
   - flutter packages get
   - flutter config --enable-web
-  - flutter build bundle -v
+  - flutter build web
 cache:
   directories:
   - $HOME/.pub-cache
