@@ -11,9 +11,9 @@ class App extends StatelessWidget {
     ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Language Transfer',fd
+      title: 'Language Transfer',
       theme: ThemeData(primaryColor: Colors.orange[200]),
-      onGenerateRoute: routes,fd
+      onGenerateRoute: routes,
     );
   }
 
