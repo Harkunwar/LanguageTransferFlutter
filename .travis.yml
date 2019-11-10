@@ -1,20 +1,22 @@
-language: generic
-dist: xenial
-addons:
-  apt:
-    packages:
-      - lib32stdc++6
-env:
-  global:
-    - FLUTTER_CHANNEL=dev
-install:
-  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_CHANNEL
-  - export PATH="$PATH:`pwd`/flutter/bin/cache/dart-sdk/bin"
-  - export PATH="$PATH:`pwd`/flutter/bin"
-  - flutter doctor -v
-  - flutter packages get
-  - flutter config --enable-web
-  - flutter build web
+matrix:
+  include:
+    - language: generic
+      dist: xenial
+      addons:
+        apt:
+          packages:
+            - lib32stdc++6
+      env:
+        global:
+          - FLUTTER_CHANNEL=dev
+      install:
+        - git clone https://github.com/flutter/flutter.git -b $FLUTTER_CHANNEL
+        - export PATH="$PATH:`pwd`/flutter/bin/cache/dart-sdk/bin"
+        - export PATH="$PATH:`pwd`/flutter/bin"
+        - flutter doctor -v
+        - flutter packages get
+        - flutter config --enable-web
+        - flutter build web
 cache:
   directories:
   - $HOME/.pub-cache
