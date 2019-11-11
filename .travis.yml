@@ -17,6 +17,20 @@ matrix:
         - flutter packages get
         - flutter config --enable-web
         - flutter build web
+    - language: android
+      dist: trusty
+      android:
+        components:
+          - android-28
+          - build-tools-28.0.3
+      before_script:
+        - git clone https://github.com/flutter/flutter.git -b dev
+        - export PATH="$PATH:`pwd`/flutter/bin/cache/dart-sdk/bin"
+        - export PATH="$PATH:`pwd`/flutter/bin"
+        - flutter doctor -v
+        - flutter packages get
+      script:
+        - flutter build apk
 cache:
   directories:
   - $HOME/.pub-cache
