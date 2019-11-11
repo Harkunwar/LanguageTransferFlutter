@@ -68,7 +68,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             onChanged: (text) => setErrorMessage(text),
             decoration: InputDecoration(
               prefixIcon: Icon(icon, color: Colors.deepPurple, size: 20),
-              suffixIcon: valid ? null : Icon(Icons.close, color: Colors.red, size :30),
+              suffixIcon: valid ? null : Icon(Icons.cancel, color: Colors.red[600], size :20),
               hintText: hint,
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.0),
