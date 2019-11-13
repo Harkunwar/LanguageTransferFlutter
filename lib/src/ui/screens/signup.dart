@@ -1,10 +1,12 @@
 import 'package:firecross/firecross.dart';
 import 'package:flutter/material.dart';
 import 'package:language_transfer/src/utils/routes.dart';
+import 'package:language_transfer/src/utils/validator.dart';
 import 'package:language_transfer/src/ui/widgets/custom_shape.dart';
 import 'package:language_transfer/src/ui/widgets/customappbar.dart';
 import 'package:language_transfer/src/ui/widgets/responsive_ui.dart';
 import 'package:language_transfer/src/ui/widgets/textformfield.dart';
+
 
 class SignupScreen extends StatelessWidget {
   final TextEditingController firstNameController = TextEditingController();
@@ -13,6 +15,10 @@ class SignupScreen extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmationController =
       TextEditingController();
+  bool nameValidity  = false;
+  bool lastNameValidity = false;
+  bool emailValidity = false;
+  bool pwdValidity = false;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +92,7 @@ class SignupScreen extends StatelessWidget {
             ),
           ),
         ),
-        Container(
+        /*Container(
           height: size.height / 5.5,
           alignment: Alignment.center,
           decoration: BoxDecoration(
@@ -127,7 +133,7 @@ class SignupScreen extends StatelessWidget {
 //                },
 //                child: Icon(Icons.add_a_photo, size: large? 22: (medium? 15: 13),)),
 //          ),
-//        ),
+//        ),*/
       ],
     );
   }
@@ -138,7 +144,7 @@ class SignupScreen extends StatelessWidget {
       margin: EdgeInsets.only(
           left: size.width / 12.0,
           right: size.width / 12.0,
-          top: size.height / 20.0),
+          top: size.height / 40.0),
       child: Form(
         child: Column(
           children: <Widget>[
@@ -162,6 +168,7 @@ class SignupScreen extends StatelessWidget {
       keyboardType: TextInputType.text,
       icon: Icons.person,
       hint: 'First Name',
+      validator: Validator.validateName,
       textEditingController: firstNameController,
     );
   }
@@ -171,6 +178,7 @@ class SignupScreen extends StatelessWidget {
       keyboardType: TextInputType.text,
       icon: Icons.person,
       hint: 'Last Name',
+      validator: Validator.validateName,
       textEditingController: lastNameController,
     );
   }
@@ -180,6 +188,7 @@ class SignupScreen extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       icon: Icons.email,
       hint: 'Email ID',
+      validator: Validator.validateEmail,
       textEditingController: emailController,
     );
   }
@@ -198,6 +207,7 @@ class SignupScreen extends StatelessWidget {
       obscureText: true,
       icon: Icons.lock,
       hint: 'Password',
+      validator: Validator.validatePasswordLength,
       textEditingController: passwordController,
     );
   }
@@ -208,6 +218,7 @@ class SignupScreen extends StatelessWidget {
       obscureText: true,
       icon: Icons.lock,
       hint: 'Confirm Password',
+      validator: checkEqualPassword,
       textEditingController: passwordConfirmationController,
     );
   }
@@ -259,6 +270,9 @@ class SignupScreen extends StatelessWidget {
         final FirecrossAuth auth = FirecrossAuth.instance;
 
         try {
+          if(nameValidity && lastNameValidity && emailValidity && pwdValidity){
+            throw const FormatException('Invalid information entered');
+          }
           FirecrossUser user =
               (await auth.createUserWithEmailAndPassword(email, password)).user;
           await user.updateProfile(
@@ -377,6 +391,12 @@ class SignupScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String checkEqualPassword(String otherPassword) {
+    if(passwordController.text != otherPassword)
+      return 'Password does not match';
+    return Validator.validatePasswordLength(otherPassword);
   }
 }
 
