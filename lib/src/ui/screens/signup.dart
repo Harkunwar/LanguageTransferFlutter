@@ -218,7 +218,7 @@ class SignupScreen extends StatelessWidget {
       obscureText: true,
       icon: Icons.lock,
       hint: 'Confirm Password',
-      validator: Validator.validatePasswordLength,
+      validator: checkEqualPassword,
       textEditingController: passwordConfirmationController,
     );
   }
@@ -391,6 +391,12 @@ class SignupScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String checkEqualPassword(String otherPassword) {
+    if(passwordController.text != otherPassword)
+      return 'Password does not match';
+    return Validator.validatePasswordLength(otherPassword);
   }
 }
 
