@@ -273,6 +273,8 @@ class SignupScreen extends StatelessWidget {
           if(nameValidity && lastNameValidity && emailValidity && pwdValidity){
             throw const FormatException('Invalid information entered');
           }
+          Scaffold.of(context).showSnackBar(
+              const SnackBar(content: Text('Creating an account..')));
           FirecrossUser user =
               (await auth.createUserWithEmailAndPassword(email, password)).user;
           await user.updateProfile(
