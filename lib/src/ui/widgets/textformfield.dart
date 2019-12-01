@@ -40,6 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   final bool obscureText;
   final IconData icon;
   final Function validator;
+  final bool autocorrect;
   bool valid = true;
 
   _CustomTextFieldState({
@@ -49,6 +50,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     this.icon,
     this.obscureText,
     this.validator,
+    this.autocorrect
   });
 
   @override
