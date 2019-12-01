@@ -14,7 +14,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // printData();
     return Scaffold(
       body: Builder(
         builder: (context) => Material(

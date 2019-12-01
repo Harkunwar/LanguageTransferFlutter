@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:language_transfer/src/utils/routes.dart';
 
 class App extends StatelessWidget {
+  static bool loggedIn = false;
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -17,11 +19,21 @@ class App extends StatelessWidget {
       home: StreamBuilder<FirecrossUser>(
         stream: FirecrossAuth.instance.onAuthStateChanged,
         builder: (context, AsyncSnapshot<FirecrossUser> snapshot) {
-          // if(FirecrossConfig.initialized) {
-            if (!snapshot.hasData || snapshot.data == null) {
-              return Routes.toScreen(Routes.LOGIN);
+          if (!snapshot.hasData || snapshot.data == null) {
+            if (loggedIn != false) {
+              loggedIn = false;
+              Future(() {
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              });
             }
-          // }
+            return Routes.toScreen(Routes.LOGIN);
+          }
+          if (loggedIn != true) {
+            loggedIn = true;
+            Future(() {
+              Navigator.of(context).popUntil((route) => route.isFirst);
+            });
+          }
           return Routes.toScreen(Routes.HOME);
         },
       ),
@@ -34,5 +46,4 @@ class App extends StatelessWidget {
       return Routes.toScreen(settings.name);
     });
   }
-
 }

@@ -260,8 +260,6 @@ class SignupScreen extends StatelessWidget {
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       onPressed: () async {
-        // TODO: Add validator code
-
         final String firstName = firstNameController.text;
         final String lastName = lastNameController.text;
         final String email = emailController.text;
@@ -274,7 +272,7 @@ class SignupScreen extends StatelessWidget {
             throw const FormatException('Invalid information entered');
           }
           Scaffold.of(context).showSnackBar(
-              const SnackBar(content: Text('Creating an account..')));
+              const SnackBar(content: Text('Creating an account...')));
           FirecrossUser user =
               (await auth.createUserWithEmailAndPassword(email, password)).user;
           await user.updateProfile(
