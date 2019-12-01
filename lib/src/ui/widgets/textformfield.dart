@@ -8,6 +8,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final bool obscureText;
   final IconData icon;
+  final bool autocorrect;
 
   const CustomTextField({
     this.hint,
@@ -15,6 +16,7 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType,
     this.icon,
     this.obscureText = false,
+    this.autocorrect = true,
   });
 
   @override
@@ -31,6 +33,7 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         obscureText: obscureText,
         cursorColor: Colors.blue[200],
+        autocorrect: autocorrect,
         decoration: InputDecoration(
           prefixIcon: Icon(icon, color: Colors.deepPurple, size: 20),
           hintText: hint,

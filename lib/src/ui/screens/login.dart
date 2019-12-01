@@ -14,6 +14,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // printData();
     return Scaffold(
       body: Builder(
         builder: (context) => Material(
@@ -160,6 +161,7 @@ class LoginScreen extends StatelessWidget {
       textEditingController: emailController,
       icon: Icons.email,
       hint: 'Email ID',
+      autocorrect: false,
     );
   }
 
@@ -221,6 +223,8 @@ class LoginScreen extends StatelessWidget {
         final String password = passwordController.text;
         final FirecrossAuth auth = FirecrossAuth.instance;
         try {
+          Scaffold.of(context).showSnackBar(const SnackBar(
+              content: Text('Signing in ...')));
           final FirecrossUser user =
               (await auth.signInWithEmailAndPassword(email, password)).user;
           Scaffold.of(context).showSnackBar(SnackBar(
