@@ -29,6 +29,7 @@ class CustomTextField extends StatefulWidget {
     obscureText: obscureText,
     icon: icon,
     validator: validator,
+    autocorrect: autocorrect
   );
 }
 
