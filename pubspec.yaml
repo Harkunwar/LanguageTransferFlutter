@@ -21,7 +21,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
-  firecross: ^0.0.2+19
+  firecross: ^0.0.2+21
+  rxdart: ^0.22.1
 
 dev_dependencies:
   flutter_test:

@@ -8,6 +8,7 @@ class CustomTextField extends StatefulWidget {
   final TextInputType keyboardType;
   final bool obscureText;
   final IconData icon;
+  final bool autocorrect;
   final Function validator;
 
   const CustomTextField({
@@ -16,6 +17,7 @@ class CustomTextField extends StatefulWidget {
     this.keyboardType,
     this.icon,
     this.obscureText = false,
+    this.autocorrect = true,
     this.validator,
   });
 
@@ -27,6 +29,7 @@ class CustomTextField extends StatefulWidget {
     obscureText: obscureText,
     icon: icon,
     validator: validator,
+    autocorrect: autocorrect
   );
 }
 
@@ -38,6 +41,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   final bool obscureText;
   final IconData icon;
   final Function validator;
+  final bool autocorrect;
   bool valid = true;
 
   _CustomTextFieldState({
@@ -45,8 +49,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
     this.textEditingController,
     this.keyboardType,
     this.icon,
-    this.obscureText = false,
+    this.obscureText,
     this.validator,
+    this.autocorrect
   });
 
   @override
@@ -63,6 +68,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         keyboardType: keyboardType,
         obscureText: obscureText,
         cursorColor: Colors.blue[200],
+        autocorrect: autocorrect,
         onChanged: (text) => setErrorMessage(text),
         decoration: InputDecoration(
           prefixIcon: Icon(icon, color: Colors.deepPurple, size: 20),

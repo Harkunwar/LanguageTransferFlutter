@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
                   signInTextRow(context),
                   form(context),
                   forgetPassTextRow(context),
-                  SizedBox(height: size.height / 12),
+                  SizedBox(height: size.height / 18),
                   button(context),
                   signUpTextRow(context),
                 ],
@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
             child: Container(
               height: large
                   ? size.height / 4
-                  : (medium ? size.height / 3.75 : size.height / 3.5),
+                  : (medium ? size.height / 3.5 : size.height / 3.25),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Colors.deepPurple, Colors.blue[700]],
@@ -160,6 +160,7 @@ class LoginScreen extends StatelessWidget {
       textEditingController: emailController,
       icon: Icons.email,
       hint: 'Email ID',
+      autocorrect: false,
     );
   }
 
@@ -221,6 +222,8 @@ class LoginScreen extends StatelessWidget {
         final String password = passwordController.text;
         final FirecrossAuth auth = FirecrossAuth.instance;
         try {
+          Scaffold.of(context).showSnackBar(const SnackBar(
+              content: Text('Signing in ...')));
           final FirecrossUser user =
               (await auth.signInWithEmailAndPassword(email, password)).user;
           Scaffold.of(context).showSnackBar(SnackBar(
